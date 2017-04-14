@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+"""\
+NAME
+  cx - convert chemical formats
+
+SYNOPSIS
+  cx [-i inputformat] [-o outputformat] inputfile [output file]
+"""
+
+import chemxchange as cx
+import getopt
+
+def parse_cli():
+    import sys,getopt
+    opts,args = getopt.getopt(sys.args,'i:o:')
+    iformat = None
+    oformat = None
+    for k,v in opts:
+        if k=='-i': iformat = v
+        if k=='-o': oformat = v
+
+geos = cx.read_molecules(fname,format)
+cx.write_molecules(geos,oname,oformat)
